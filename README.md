@@ -13,3 +13,6 @@ Simulator - RTL design is checked to adherence to the spec by simulating the des
 Design-Design is the actual Verilog code or set of Verilog codes which has the intended functionality to meet with the required specifications.
 
 Testbench- Testbench is the setup to apply stimulus to the design to check its functionality.
+
+#The design and the testbench setup:
+
