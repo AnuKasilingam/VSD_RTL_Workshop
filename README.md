@@ -22,5 +22,8 @@ Testbench- Testbench is the setup to apply stimulus to the design to check its f
 
 ![Workshop image](IMAGES/IMG_02.png)
 
+Video-2 : Lab 1 - Introduction to lab
+
+#File setup
 
 
