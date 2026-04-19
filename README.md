@@ -20,5 +20,7 @@ Testbench- Testbench is the setup to apply stimulus to the design to check its f
 
 #iverilog based simulation flow
 
+![Workshop image](IMAGES/IMG_02.png)
+
 
 
