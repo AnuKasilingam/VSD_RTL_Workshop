@@ -22,10 +22,15 @@ Testbench- Testbench is the setup to apply stimulus to the design to check its f
 
 ![Workshop image](IMAGES/IMG_02.png)
 
+Labs Using iverilog and gtkwave
+
 Video-2 : Lab 1 - Introduction to lab
 
 #File setup
 
 In this Project, the ready to use cloud-based lab is used for RTL Design and Synthesis using open-source tools such as Yosys, Icarus Verilog, and GTKWave. All the tools run inside a GitHub Codespace with noVNC desktop access, which requires no installation.
-Once the noVNC desktop terminal is openend, all the workshop files including the library files,verilog files and the standard cell verilog model are present inside the directory named sky130RTLDesignAndSynthesisWorkshop inside the workspaces folder.
+Once the noVNC desktop terminal is openend, all the workshop files including the library files,verilog files and the standard cell verilog model are present inside the directory named sky130RTLDesignAndSynthesisWorkshop inside the workspaces folder. The below image is the all files going to use in the project.
 
+![Workshop image](IMAGES/IMG_03.png)
+
+Video -3 : Lab 2 - Introduction to iverilog and gtkwave - Part 1
