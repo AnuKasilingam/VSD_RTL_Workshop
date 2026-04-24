@@ -34,3 +34,11 @@ Once the noVNC desktop terminal is openend, all the workshop files including the
 ![Workshop image](IMAGES/IMG_03.png)
 
 Video -3 : Lab 2 - Introduction to iverilog and gtkwave - Part 1
+Loading the verilog file mux into the simulator (iverilog). 
+
+![Workshop image](IMAGES/IMG_04.png)
+
+To load into the simulator,the design name and the testbench name should be given along with the command iverilog.
+Once its loaded in the simulator, a.out files will be created.
+When executing the a.out file, its going to dump the vcd file (the output of the simulator will be the vcd file).
+
