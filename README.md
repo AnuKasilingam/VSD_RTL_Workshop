@@ -128,3 +128,26 @@ Video - 8 Lab 3 Yosys-1 good mux Part-1
 Invoke the Yosys
 
 ![Workshop image](IMAGES/IMG_13.png)
+```
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib//command to read the library and need to give the path
+read_verilog good_mux.v //command to read the design-verilog file,taken example mux
+synth -top good_mux //command the module used for synthesis
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib // command to generate the netlist along the path to the lib. abc is a command which converts the RTL file into gates(the library path mentioned along the command is the library, where the gates is present that need to be used).
+show // command used to show the graphical logic it has realized in the yosys.
+write_verilog -noattr good_mux_netlist.v //command to write the netlist
+!vim good_mux_netlist.v
+```
+![Workshop image](IMAGES/IMG_14.png)
+
+Steps for design synthesis.
+Inference from synthesis 
+
+![Workshop image](IMAGES/IMG_16.png)
+
+Generating the netlist
+
+![Workshop image](IMAGES/IMG_17.png)
+
+Graphical synthesis logic realized in Yosys
+
+![Workshop image](IMAGES/IMG_18.png)
