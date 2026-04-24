@@ -28,7 +28,7 @@ Video-2 : Lab 1 - Introduction to lab
 
 #File setup
 
-In this Project, the ready to use cloud-based lab is used for RTL Design and Synthesis using open-source tools such as Yosys, Icarus Verilog, and GTKWave. All the tools run inside a GitHub Codespace with noVNC desktop access, which requires no installation.
+In this Course, the ready to use cloud-based lab is used for RTL Design and Synthesis using open-source tools such as Yosys, Icarus Verilog, and GTKWave. All the tools run inside a GitHub Codespace with noVNC desktop access, which requires no installation.
 Once the noVNC desktop terminal is openend, all the workshop files including the library files,verilog files and the standard cell verilog model are present inside the directory named sky130RTLDesignAndSynthesisWorkshop inside the workspaces folder. The below image is the all files going to use in the project.
 
 ![Workshop image](IMAGES/IMG_03.png)
@@ -42,3 +42,84 @@ To load into the simulator,the design name and the testbench name should be give
 Once its loaded in the simulator, a.out files will be created.
 When executing the a.out file, its going to dump the vcd file (the output of the simulator will be the vcd file).
 
+![Workshop image](IMAGES/IMG_05.png)
+
+The vcd file will be loaded for the waveform analysis in the gtkwave and check its functionality.
+
+#Waveform Analysis of Mux
+![Workshop image](IMAGES/IMG_06.png)
+
+Video -4 : Lab 3 - Introduction to iverilog and gtkwave - Part 2
+
+#File Structure of design and testbench files
+
+Image
+
+Introduction tp Yosys and Logic Synthesis
+
+Video-5 : Introduction to yosys
+
+Synthesizer : Tool used for converting the RTL to netlist. Yosys is used as the synthesizer in this course.
+
+Netlist - The representation of the design in the form of the cells present in the .lib file (standard cell).
+```
+read_verilog //command to read the design
+read_liberty //command to read the .lib file
+write_verilog //command to write the netlist
+```
+Image 
+
+To verify the Synthesis
+
+Image
+
+The stimulus should be same as the output observed during the RTL simulation.
+The set of Primary inputs/primary outputs will remain same between the RTL design and synthesized netliset and the same testbench can be used.
+
+Video -6 Introduction to Logic Synthesis Part 1
+Logic Synthesis
+
+RTL Design - Behavioural representation of the required specification,which will be written in the HDL language.
+
+Instead of RTL Code, if the digital logic circuit(hardware circuit) is needed. How to map these two?
+Answer : Synthesis - RTL to code Gate level translation. The design is converted into gates and the connections are made between the gates. The file written out is called netlist.
+
+What is .lib?
+Collection of logical modules. Includes basic logic gates like AND,OR,NOT,ETC.,. It may contain different flavors of same gate.
+
+Why do we need different flavours of Gate?
+Combinational delay in logic path determines the maximum speed of operation of digital logic circuit.
+
+Image
+
+The clock cycle needs to accomodate the propogation delay of the Clock A and the combinational delay and the setup time of the clock B and that should be the minimum requirement of the clock period.That will decide the maximum frequency.
+
+Video -7 Introduction to Logic Synthesis Part 2
+
+The faster cells in the .lib are sufficient to make T_combination small. 
+Why do we need slow cells?
+
+Image 
+
+The delay from FF_A to FF_B should be greater than the Hold time. The hold time of the flop is the time after the edge of the clock, the data shouldn't be changed.
+#Faster cells are needed to meet the setup and slower cells are needed to meet the hold.
+
+The Capcitance is the load in the digital logic circuit.
+
+Faster cells vs Slower cells
+
+Faster the charging or discharging the capacitance, the lesser will be the propogation delay.
+
+To charge or discharge the capacitance fast , the more current sourcing capability which is wide transistors are needed. The current carrying capability of a transistor is the function of its width.The wider the transistor, the progation delay will be low and more area and power. The narrow the transistor, the propogation delay will be more and less the area and power.
+
+Selection of Cells
+
+The synthesizer need to be guided to select the appropriate flavour of cells that is optimum for the implementation of logic circuit is called Constraints.
+
+The more the usage of the faster cells, its bad interms of power and area and it results in hold time violations. The more the usage of slower cells, may not need the performance need and the circuit will be sluggish.
+
+Labs using Yosys and Sky130 PDKs
+
+Video - 8 Lab 3 Yosys-1 good mux Part-1
+
+Invoke the Yosys
