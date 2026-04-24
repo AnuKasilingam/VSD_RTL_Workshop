@@ -53,7 +53,9 @@ Video -4 : Lab 3 - Introduction to iverilog and gtkwave - Part 2
 
 #File Structure of design and testbench files
 
-Image
+![Workshop image](IMAGES/IMG_07.png)
+
+![Workshop image](IMAGES/IMG_08.png)
 
 Introduction tp Yosys and Logic Synthesis
 
@@ -67,11 +69,12 @@ read_verilog //command to read the design
 read_liberty //command to read the .lib file
 write_verilog //command to write the netlist
 ```
-Image 
+
+![Workshop image](IMAGES/IMG_09.png)
 
 To verify the Synthesis
 
-Image
+![Workshop image](IMAGES/IMG_10.png)
 
 The stimulus should be same as the output observed during the RTL simulation.
 The set of Primary inputs/primary outputs will remain same between the RTL design and synthesized netliset and the same testbench can be used.
@@ -90,7 +93,7 @@ Collection of logical modules. Includes basic logic gates like AND,OR,NOT,ETC.,.
 Why do we need different flavours of Gate?
 Combinational delay in logic path determines the maximum speed of operation of digital logic circuit.
 
-Image
+![Workshop image](IMAGES/IMG_11.png)
 
 The clock cycle needs to accomodate the propogation delay of the Clock A and the combinational delay and the setup time of the clock B and that should be the minimum requirement of the clock period.That will decide the maximum frequency.
 
@@ -99,7 +102,7 @@ Video -7 Introduction to Logic Synthesis Part 2
 The faster cells in the .lib are sufficient to make T_combination small. 
 Why do we need slow cells?
 
-Image 
+![Workshop image](IMAGES/IMG_12.png)
 
 The delay from FF_A to FF_B should be greater than the Hold time. The hold time of the flop is the time after the edge of the clock, the data shouldn't be changed.
 #Faster cells are needed to meet the setup and slower cells are needed to meet the hold.
@@ -123,3 +126,5 @@ Labs using Yosys and Sky130 PDKs
 Video - 8 Lab 3 Yosys-1 good mux Part-1
 
 Invoke the Yosys
+
+![Workshop image](IMAGES/IMG_13.png)
