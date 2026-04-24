@@ -296,6 +296,22 @@ To Initialize the flop, we have the control pins like reset or set.Reset and set
 
 #Video:17 Why Flops and Flop Coding Styles Part -2
 
+asyncres.v Image 
+
+The always block gets evaluated whenever there is a change in the clock or change in the set/reset.Upon the signal going the output is going low, then its asynchronous reset. The circuit is making sensitive to positive edge of the clock , upon positive edge, q is getting d. Asynchronous - irresepective of clock.
+
+async_set.v image
+
+The always block gets evaluated upon on a asynchronous set, without the dependancy of the clock the q is setting to 1.
+
+syncres.v image
+
+Synchronous will turn into D-pin of the flop. Reset awaiting the clock edge is called synchronous reset. Synchronous reset - the always block get evaluated only upon a clock. Even if the sync_reset is going toggle,its not going to get evaluated till the posedge of the clock. Upon the  posedge of the clock,look for the presence synchrounous clock,q goes low,else q follows d.
+
+asyncres_syncres.v
+
+Here, Evaluating always block upon clock and as well as upon asynchronous reset. Entering always upon asynchronous reset, q goes low else the always entered because of the clock.Entered the always block because of the clock upon the clock, if there present synchronous reset, q goes low else q is getting d.
+
 
 #Video:18 Lab - Flop Synthesis simulations Part - 1
 
@@ -306,4 +322,4 @@ To Initialize the flop, we have the control pins like reset or set.Reset and set
 #Video:20 Interesting Optimisations Part-1
 
 
-#Video:20 Interesting Optimisations Part-1
+#Video:21 Interesting Optimisations Part-2
