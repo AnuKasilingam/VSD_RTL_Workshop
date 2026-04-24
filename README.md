@@ -1,4 +1,4 @@
-## RTL Design And Synthesis Workshop using Sky130
+# RTL Design And Synthesis Workshop using Sky130
 
 ## Day 1 - Introduction to Verilog RTL design and Synthesis
 
@@ -169,14 +169,14 @@ Writing Netlist
 ```
 vim ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-Image
+![Workshop image](IMAGES/IMG_20.png)
 
 sky130_fd_sc_hd__tt_025C_1v80.lib - Name of the library
 tt- typical library
 025C - Temperature
 1v8-indicates the voltage
 
-Image
+![Workshop image](IMAGES/IMG_21.png)
 
 Once the library file is opened, we can see the operating conditions, the PVT where P-Process(there can be variations due to fabrication), V-Voltage (Variation due to voltage), T-Temperature(semiconductor are sensitive to temperature). All these three determines how the silicon is going to work.
 
@@ -184,7 +184,7 @@ Once the library file is opened, we can see the operating conditions, the PVT wh
 
 Example : AND gate 
 
-Image
+![Workshop image](IMAGES/IMG_22.png)
 
 The keyword cell which defines the marks the beginning of the cell definition. It can contain different kind of cells like diffrent flavours of diffrent cells and different flavours of same cell. It contains different features of cell like leakage power for all the input combinations,area,power and timing informations of input pins.
 
@@ -192,7 +192,7 @@ The keyword cell which defines the marks the beginning of the cell definition. I
 
 ## Different flavours of cell - AND gate.
 
-Image
+![Workshop image](IMAGES/IMG_23.png)
 
 We can see from the above image that, different cells of and gate where their area differs. we can find the larger area has employed wider transistors but it can be faster. Smaller area will have 
 delay more , area will be less and consume more power.
@@ -205,7 +205,8 @@ delay more , area will be less and consume more power.
 
 Example : multiple_modules(Two sub modules will be used, one sub module1 and_gate  and one sub module2 or_gate)
 
-Image
+![Workshop image](IMAGES/IMG_24.png)
+![Workshop image](IMAGES/IMG_25.png)
 
 ### Synthesising multiple_modules
 
@@ -214,20 +215,20 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib//command to re
 read_verilog multiple_modules.v //command to read the design-verilog file,taken example multiple_modules
 synth -top multiple_modules //command the module used for synthesis
 ```
-Image
+![Workshop image](IMAGES/IMG_26.png)
 
-# Generating Netlist
+##Generating Netlist
 ```
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib // command to generate the netlist
 ```
-Image
+![Workshop image](IMAGES/IMG_27.png)
 
 #Realization of Logic in Yosys
 
 ```
 show // command used to show the graphical logic it has realized in the yosys.
 ```
-Image
+![Workshop image](IMAGES/IMG_28.png)
 
 From the above image, we can see that, it didnt mention the gates thats used, it is showing as u1 and u2. This is called Hierarchical synthesis.
 
@@ -236,28 +237,28 @@ From the above image, we can see that, it didnt mention the gates thats used, it
 write_verilog -noattr multiple_modules_hier.v //command to write the netlist
 !vim multiple_modules_hier.v
 ```
-Image
+![Workshop image](IMAGES/IMG_29.png)
 
 ## Flat Synthesis
 
 ```
 yosys> flatten // flatten is the command to write down the flat netlist
 ```
-Image
+![Workshop image](IMAGES/IMG_30.png)
 
 ## Realization of Logic in Yosys
 
 ```
 show // command used to show the graphical logic it has realized in the yosys.
 ```
-Image
+![Workshop image](IMAGES/IMG_31.png)
 
 ## Writing Netlist
 ```
 write_verilog -noattr multiple_modules_flat.v //command to write the netlist
 !vim multiple_modules_flat.v
 ```
-Image
+![Workshop image](IMAGES/IMG_32.png)
 From the above image, we can see that, it has mentioned the gates thats used, instead of the submodules u1 and u2. This is called flat synthesis.
 
 ## Sub_module level Synthesis
@@ -269,20 +270,21 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib//command to re
 read_verilog multiple_modules.v //command to read the design-verilog file,taken example multiple_modules
 synth -top sub_module1 //command the module used for synthesis
 ```
-Image
+![Workshop image](IMAGES/IMG_33.png)
 
 #Generating Netlist
 ```
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib // command to generate the netlist
 ```
-Image
+![Workshop image](IMAGES/IMG_34.png)
 
 #Realization of Logic in Yosys
 
 ```
 show // command used to show the graphical logic it has realized in the yosys.
 ```
-Image
+![Workshop image](IMAGES/IMG_35.png)
+
 From the above image, we can see that, and gate instead of the submodules u1 and u2. This is called sub-module level synthesis. We controlled the module which we are synthesizing using the keyword "synth -top". The submodule level synthesis is needed when we have multiple instances of the same module. It is also used in the massive design, in the concept of divide and conquer. Instead of giving the entire massive design to the tool, giving one portion by one portion to the tool, so it can write the optimized netlist and can stitch all the netlist together to the top level.
 
 ## Various Flop Coding Styles and Optimization
@@ -296,37 +298,39 @@ To Initialize the flop, we have the control pins like reset or set.Reset and set
 
 ## Video:17 Why Flops and Flop Coding Styles Part -2
 
-asyncres.v Image 
+![Workshop image](IMAGES/IMG_36.png)
 
 The always block gets evaluated whenever there is a change in the clock or change in the set/reset.Upon the signal going the output is going low, then its asynchronous reset. The circuit is making sensitive to positive edge of the clock , upon positive edge, q is getting d. Asynchronous - irresepective of clock.
 
-async_set.v image
+![Workshop image](IMAGES/IMG_37.png)
 
 The always block gets evaluated upon on a asynchronous set, without the dependancy of the clock the q is setting to 1.
 
-syncres.v image
+![Workshop image](IMAGES/IMG_38.png)
 
 Synchronous will turn into D-pin of the flop. Reset awaiting the clock edge is called synchronous reset. Synchronous reset - the always block get evaluated only upon a clock. Even if the sync_reset is going toggle,its not going to get evaluated till the posedge of the clock. Upon the  posedge of the clock,look for the presence synchrounous clock,q goes low,else q follows d.
 
-asyncres_syncres.v
+![Workshop image](IMAGES/IMG_39.png)
 
 Here, Evaluating always block upon clock and as well as upon asynchronous reset. Entering always upon asynchronous reset, q goes low else the always entered because of the clock.Entered the always block because of the clock upon the clock, if there present synchronous reset, q goes low else q is getting d.
 
 
 ## Video:18 Lab - Flop Synthesis simulations Part - 1
+![Workshop image](IMAGES/IMG_40.png)
+
 Asynchornous reset is not awaiting the clock edge, its immediately making the q go low.
 
-Waveform image
+![Workshop image](IMAGES/IMG_41.png)
 
 Asynchronous set - The changes in the d-pin are felt in the q-pin, only upon the edge of the clock.
 Irrespective of the clock,asynchronous set is making q go 1.
 
-Waveform image
-Waveform image
+![Workshop image](IMAGES/IMG_42.png)
+![Workshop image](IMAGES/IMG_43.png)
 
 Synchronous reset - The reset is getting applied upon the pos edge of the clock. If both the clk and d is high upon the edge of the clock, the preference is given to sync_reset.
 
-waveform image
+![Workshop image](IMAGES/IMG_44.png)
 
 
 ## Video:19 Lab - Flop Synthesis simulations Part - 2
@@ -343,7 +347,7 @@ dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib//command to t
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show 
 ```
-yosys image
+![Workshop image](IMAGES/IMG_45.png)
 
 ```
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
@@ -353,7 +357,7 @@ dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show 
 ```
-yosys image
+![Workshop image](IMAGES/IMG_46.png)
 
 ```
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
@@ -363,7 +367,7 @@ dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show 
 ```
-yosys image
+![Workshop image](IMAGES/IMG_47.png)
 
 ## Video:20 Interesting Optimisations Part-1
 
@@ -380,19 +384,19 @@ write_verilog -noattr mult_2.v
 ```
 Verilog file 
 
-Image
+![Workshop image](IMAGES/IMG_48.png)
 
 No hardware  requirements including the memories,memory bits,processes and cells.
 
-Image
+![Workshop image](IMAGES/IMG_49.png)
 
 Netlist file
 
-Image
+![Workshop image](IMAGES/IMG_50.png)
 
 Realization of Logic
 
-Image 
+![Workshop image](IMAGES/IMG_51.png)
 
 ## Video:21 Interesting Optimisations Part-2
 
@@ -409,15 +413,15 @@ write_verilog -noattr mult_2.v
 ```
 Verilog file 
 
-Image
+![Workshop image](IMAGES/IMG_52.png)
 
 Statistics
 
-Image
+![Workshop image](IMAGES/IMG_53.png)
 
 Netlist file
 
-Image
+![Workshop image](IMAGES/IMG_54.png)
 
 Realization of Logic
-Image 
+![Workshop image](IMAGES/IMG_55.png)
