@@ -425,3 +425,39 @@ Netlist file
 
 Realization of Logic
 ![Workshop image](IMAGES/IMG_55.png)
+
+## Day 3 - Combinational and Sequential Optimisations
+## Video 22 : Introduction to Logic Optimisations Part 1
+
+### Combinational Logic Optimisation
+Squeezing the logics to get the most optimised design, efficient interms of area and power.
+
+Techniques used for the combinational logic optimisation
+- Constant Propagation
+   - Direct Optimisation
+- Boolean logic Optimisation
+   - K-map
+   - Quine McKluskey
+ 
+### Constant Propagation
+   It is the technique in digital design that identify the input signal, which has the constant value(0 or 1) and simplifies the surrounding combinational logic to improve area and power efficiency. Through several mechanisms,constant propogation reduces the complexity of logic circuits.
+
+### Boolean logic Optimization
+  It is used to minimize the complex boolean expressions into simpler,equivalent forms reducing the number of logic gates to perform the specific function.
+    
+## Video 23 : Introduction to Logic Optimisations Part -2
+
+### Sequential Logic Optimisation
+Techniques used for the sequential logic optimisation
+- Basic
+   - Sequential Constant Propagation
+- Advanced
+   - State Optimisation
+   - Retiming
+   - Sequential Logic Cloning(Floor Plan Aware Synthesis)
+
+## Combinational logic optimizations
+
+## Video 24 : Combinational logic optimisations Part 1
+
+   
