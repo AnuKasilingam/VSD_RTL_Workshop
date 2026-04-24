@@ -1,10 +1,10 @@
-# RTL Design And Synthesis Workshop using Sky130
+## RTL Design And Synthesis Workshop using Sky130
 
-##Day 1 - Introduction to Verilog RTL design and Synthesis
+## Day 1 - Introduction to Verilog RTL design and Synthesis
 
-##Introduction to open-source simulator iverilog
+## Introduction to open-source simulator iverilog
 
-##Video-1 : Introduction to iverilog design test bench
+## Video-1 : Introduction to iverilog design test bench
 
 Simulator - RTL design is checked to adherence to the spec by simulating the design.Simulator is the tool used for simulating the design.
 
@@ -22,18 +22,18 @@ iverilog based simulation flow
 
 ![Workshop image](IMAGES/IMG_02.png)
 
-##Labs Using iverilog and gtkwave
+## Labs Using iverilog and gtkwave
 
-##Video-2 : Lab 1 - Introduction to lab
+## Video-2 : Lab 1 - Introduction to lab
 
-#File setup
+### File setup
 
 In this Course, the ready to use cloud-based lab is used for RTL Design and Synthesis using open-source tools such as Yosys, Icarus Verilog, and GTKWave. All the tools run inside a GitHub Codespace with noVNC desktop access, which requires no installation.
 Once the noVNC desktop terminal is openend, all the workshop files including the library files,verilog files and the standard cell verilog model are present inside the directory named sky130RTLDesignAndSynthesisWorkshop inside the workspaces folder. The below image is the all files going to use in the project.
 
 ![Workshop image](IMAGES/IMG_03.png)
 
-##Video -3 : Lab 2 - Introduction to iverilog and gtkwave - Part 1
+## Video -3 : Lab 2 - Introduction to iverilog and gtkwave - Part 1
 Loading the verilog file mux into the simulator (iverilog). 
 
 ![Workshop image](IMAGES/IMG_04.png)
@@ -46,20 +46,20 @@ When executing the a.out file, its going to dump the vcd file (the output of the
 
 The vcd file will be loaded for the waveform analysis in the gtkwave and check its functionality.
 
-#Waveform Analysis of Mux
+## Waveform Analysis of Mux
 ![Workshop image](IMAGES/IMG_06.png)
 
-##Video -4 : Lab 3 - Introduction to iverilog and gtkwave - Part 2
+## Video -4 : Lab 3 - Introduction to iverilog and gtkwave - Part 2
 
-#File Structure of design and testbench files
+## File Structure of design and testbench files
 
 ![Workshop image](IMAGES/IMG_07.png)
 
 ![Workshop image](IMAGES/IMG_08.png)
 
-##Introduction tp Yosys and Logic Synthesis
+## Introduction tp Yosys and Logic Synthesis
 
-##Video-5 : Introduction to yosys
+## Video-5 : Introduction to yosys
 
 Synthesizer : Tool used for converting the RTL to netlist. Yosys is used as the synthesizer in this course.
 
@@ -79,7 +79,7 @@ To verify the Synthesis
 The stimulus should be same as the output observed during the RTL simulation.
 The set of Primary inputs/primary outputs will remain same between the RTL design and synthesized netliset and the same testbench can be used.
 
-##Video -6 Introduction to Logic Synthesis Part 1
+## Video -6 Introduction to Logic Synthesis Part 1
 Logic Synthesis
 
 RTL Design - Behavioural representation of the required specification,which will be written in the HDL language.
@@ -97,7 +97,7 @@ Combinational delay in logic path determines the maximum speed of operation of d
 
 The clock cycle needs to accomodate the propogation delay of the Clock A and the combinational delay and the setup time of the clock B and that should be the minimum requirement of the clock period.That will decide the maximum frequency.
 
-##Video -7 Introduction to Logic Synthesis Part 2
+## Video -7 Introduction to Logic Synthesis Part 2
 
 The faster cells in the .lib are sufficient to make T_combination small. 
 Why do we need slow cells?
@@ -121,9 +121,9 @@ The synthesizer need to be guided to select the appropriate flavour of cells tha
 
 The more the usage of the faster cells, its bad interms of power and area and it results in hold time violations. The more the usage of slower cells, may not need the performance need and the circuit will be sluggish.
 
-##Labs using Yosys and Sky130 PDKs
+## Labs using Yosys and Sky130 PDKs
 
-##Video - 8 Lab 3 Yosys-1 good mux Part-1
+## Video - 8 Lab 3 Yosys-1 good mux Part-1
 
 Invoke the Yosys
 
@@ -145,7 +145,7 @@ Inference from synthesis
 
 ![Workshop image](IMAGES/IMG_16.png)
 
-##Video - 9 Lab 3 Yosys-1 good mux Part-2
+## Video - 9 Lab 3 Yosys-1 good mux Part-2
 
 Generating the netlist
 
@@ -155,17 +155,17 @@ Graphical synthesis logic realized in Yosys
 
 ![Workshop image](IMAGES/IMG_18.png)
 
-##Video - 10 Lab 3 Yosys-1 good mux Part-3
+## Video - 10 Lab 3 Yosys-1 good mux Part-3
 
 Writing Netlist
 
 ![Workshop image](IMAGES/IMG_19.png)
 
-##Day 2 - Timing libs,hierarchical vs flat synthesis and efficient flop coding styles
+## Day 2 - Timing libs,hierarchical vs flat synthesis and efficient flop coding styles
 
-##Introduction to timing .libs
+## Introduction to timing .libs
 
-##Video - 11 Lab 4 Introduction to .lib Part 1
+## Video - 11 Lab 4 Introduction to .lib Part 1
 ```
 vim ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
@@ -201,13 +201,13 @@ delay more , area will be less and consume more power.
 
 ## Video -14 Lab 5 Hier synthesis flat synthesis Part 1
 
-##Hierarchical Synthesis
+## Hierarchical Synthesis
 
 Example : multiple_modules(Two sub modules will be used, one sub module1 and_gate  and one sub module2 or_gate)
 
 Image
 
-#Synthesising multiple_modules
+### Synthesising multiple_modules
 
 ```
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib//command to read the library and need to give the path
@@ -216,7 +216,7 @@ synth -top multiple_modules //command the module used for synthesis
 ```
 Image
 
-#Generating Netlist
+# Generating Netlist
 ```
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib // command to generate the netlist
 ```
@@ -231,28 +231,28 @@ Image
 
 From the above image, we can see that, it didnt mention the gates thats used, it is showing as u1 and u2. This is called Hierarchical synthesis.
 
-##Writing Netlist
+## Writing Netlist
 ```
 write_verilog -noattr multiple_modules_hier.v //command to write the netlist
 !vim multiple_modules_hier.v
 ```
 Image
 
-C
+## Flat Synthesis
 
 ```
 yosys> flatten // flatten is the command to write down the flat netlist
 ```
 Image
 
-#Realization of Logic in Yosys
+## Realization of Logic in Yosys
 
 ```
 show // command used to show the graphical logic it has realized in the yosys.
 ```
 Image
 
-##Writing Netlist
+## Writing Netlist
 ```
 write_verilog -noattr multiple_modules_flat.v //command to write the netlist
 !vim multiple_modules_flat.v
@@ -260,9 +260,9 @@ write_verilog -noattr multiple_modules_flat.v //command to write the netlist
 Image
 From the above image, we can see that, it has mentioned the gates thats used, instead of the submodules u1 and u2. This is called flat synthesis.
 
-##Sub_module level Synthesis
+## Sub_module level Synthesis
 
-#Synthesising multiple_modules - Sub module level
+## Synthesising multiple_modules - Sub module level
 
 ```
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib//command to read the library and need to give the path
@@ -285,16 +285,16 @@ show // command used to show the graphical logic it has realized in the yosys.
 Image
 From the above image, we can see that, and gate instead of the submodules u1 and u2. This is called sub-module level synthesis. We controlled the module which we are synthesizing using the keyword "synth -top". The submodule level synthesis is needed when we have multiple instances of the same module. It is also used in the massive design, in the concept of divide and conquer. Instead of giving the entire massive design to the tool, giving one portion by one portion to the tool, so it can write the optimized netlist and can stitch all the netlist together to the top level.
 
-#Various Flop Coding Styles and Optimization
+## Various Flop Coding Styles and Optimization
 
-#Video:16 Why Flops and Flop Coding Styles Part -1
+## Video:16 Why Flops and Flop Coding Styles Part -1
 
 In a Combinational Circuit, when the input is given, the output changes after the propgational delay. Because of the propogation delay, the output is going to have glitch. All logic gates add some delay to signals. These delays can cause expected and unwanted transitions in the output, called as glitches, where the output is momentarily different from the expected output. The more the combinational circuits, it can lead to more glitchy outputs. If there are continuous combinational circuits, the output cannot settle down, it'll be more glitchy. To avoid the glitches and to store the value we use flops.
 
 In the flops, the output can only be changed at the clock edge, and if the input changes at other times, the output will be unaffected. Flop is used in between the combinational circuit because flop always gives out the stable output where the output of the combinational will settle down.that is the main purpose of flop.
 To Initialize the flop, we have the control pins like reset or set.Reset and set can be synchronous and asynchronous.
 
-#Video:17 Why Flops and Flop Coding Styles Part -2
+## Video:17 Why Flops and Flop Coding Styles Part -2
 
 asyncres.v Image 
 
@@ -313,13 +313,111 @@ asyncres_syncres.v
 Here, Evaluating always block upon clock and as well as upon asynchronous reset. Entering always upon asynchronous reset, q goes low else the always entered because of the clock.Entered the always block because of the clock upon the clock, if there present synchronous reset, q goes low else q is getting d.
 
 
-#Video:18 Lab - Flop Synthesis simulations Part - 1
+## Video:18 Lab - Flop Synthesis simulations Part - 1
+Asynchornous reset is not awaiting the clock edge, its immediately making the q go low.
+
+Waveform image
+
+Asynchronous set - The changes in the d-pin are felt in the q-pin, only upon the edge of the clock.
+Irrespective of the clock,asynchronous set is making q go 1.
+
+Waveform image
+Waveform image
+
+Synchronous reset - The reset is getting applied upon the pos edge of the clock. If both the clk and d is high upon the edge of the clock, the preference is given to sync_reset.
+
+waveform image
 
 
-#Video:19 Lab - Flop Synthesis simulations Part - 2
+## Video:19 Lab - Flop Synthesis simulations Part - 2
 
+Synthesising the designs
 
-#Video:20 Interesting Optimisations Part-1
+#Reading the liberty file
+```
+yosys
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_asyncres.v
+synth -top dff_asyncres.v
+dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib//command to tell to the tool explicitly,where to pick the d-flipflops in the design library
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show 
+```
+yosys image
 
+```
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_async_set.v
+synth -top dff_async_set.v
+dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show 
+```
+yosys image
 
-#Video:21 Interesting Optimisations Part-2
+```
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_syncres.v
+synth -top dff_syncres.v
+dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show 
+```
+yosys image
+
+## Video:20 Interesting Optimisations Part-1
+
+Example : mult_2.v
+```
+yosys
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_2.v
+synth -top mul2
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr mult_2.v
+!vim mult_2.v
+```
+Verilog file 
+
+Image
+
+No hardware  requirements including the memories,memory bits,processes and cells.
+
+Image
+
+Netlist file
+
+Image
+
+Realization of Logic
+
+Image 
+
+## Video:21 Interesting Optimisations Part-2
+
+Example : mult_8.v
+```
+yosys
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_2.v
+synth -top mul2
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr mult_2.v
+!vim mult_2.v
+```
+Verilog file 
+
+Image
+
+Statistics
+
+Image
+
+Netlist file
+
+Image
+
+Realization of Logic
+Image 
