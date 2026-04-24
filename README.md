@@ -151,3 +151,7 @@ Generating the netlist
 Graphical synthesis logic realized in Yosys
 
 ![Workshop image](IMAGES/IMG_18.png)
+
+Writing Netlist
+
+![Workshop image](IMAGES/IMG_19.png)
