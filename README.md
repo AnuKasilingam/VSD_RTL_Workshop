@@ -4,7 +4,7 @@
 
 ## Introduction to open-source simulator iverilog
 
-## Video-1 : Introduction to iverilog design test bench
+## Introduction to iverilog design test bench
 
 Simulator - RTL design is checked to adherence to the spec by simulating the design.Simulator is the tool used for simulating the design.
 
@@ -24,7 +24,7 @@ iverilog based simulation flow
 
 ## Labs Using iverilog and gtkwave
 
-## Video-2 : Lab 1 - Introduction to lab
+## Lab 1 - Introduction to lab
 
 ### File setup
 
@@ -33,7 +33,7 @@ Once the noVNC desktop terminal is openend, all the workshop files including the
 
 ![Workshop image](IMAGES/IMG_03.png)
 
-## Video -3 : Lab 2 - Introduction to iverilog and gtkwave - Part 1
+## Lab 2 - Introduction to iverilog and gtkwave - Part 1
 Loading the verilog file mux into the simulator (iverilog). 
 
 ![Workshop image](IMAGES/IMG_04.png)
@@ -49,7 +49,7 @@ The vcd file will be loaded for the waveform analysis in the gtkwave and check i
 ## Waveform Analysis of Mux
 ![Workshop image](IMAGES/IMG_06.png)
 
-## Video -4 : Lab 3 - Introduction to iverilog and gtkwave - Part 2
+## Lab 3 - Introduction to iverilog and gtkwave - Part 2
 
 ## File Structure of design and testbench files
 
@@ -59,7 +59,7 @@ The vcd file will be loaded for the waveform analysis in the gtkwave and check i
 
 ## Introduction tp Yosys and Logic Synthesis
 
-## Video-5 : Introduction to yosys
+## Introduction to yosys
 
 Synthesizer : Tool used for converting the RTL to netlist. Yosys is used as the synthesizer in this course.
 
@@ -79,7 +79,7 @@ To verify the Synthesis
 The stimulus should be same as the output observed during the RTL simulation.
 The set of Primary inputs/primary outputs will remain same between the RTL design and synthesized netliset and the same testbench can be used.
 
-## Video -6 Introduction to Logic Synthesis Part 1
+##  Introduction to Logic Synthesis Part 1
 Logic Synthesis
 
 RTL Design - Behavioural representation of the required specification,which will be written in the HDL language.
@@ -97,7 +97,7 @@ Combinational delay in logic path determines the maximum speed of operation of d
 
 The clock cycle needs to accomodate the propogation delay of the Clock A and the combinational delay and the setup time of the clock B and that should be the minimum requirement of the clock period.That will decide the maximum frequency.
 
-## Video -7 Introduction to Logic Synthesis Part 2
+## Introduction to Logic Synthesis Part 2
 
 The faster cells in the .lib are sufficient to make T_combination small. 
 Why do we need slow cells?
@@ -123,7 +123,7 @@ The more the usage of the faster cells, its bad interms of power and area and it
 
 ## Labs using Yosys and Sky130 PDKs
 
-## Video - 8 Lab 3 Yosys-1 good mux Part-1
+##  Lab 3 Yosys-1 good mux Part-1
 
 Invoke the Yosys
 
@@ -145,7 +145,7 @@ Inference from synthesis
 
 ![Workshop image](IMAGES/IMG_16.png)
 
-## Video - 9 Lab 3 Yosys-1 good mux Part-2
+## Lab 3 Yosys-1 good mux Part-2
 
 Generating the netlist
 
@@ -155,7 +155,7 @@ Graphical synthesis logic realized in Yosys
 
 ![Workshop image](IMAGES/IMG_18.png)
 
-## Video - 10 Lab 3 Yosys-1 good mux Part-3
+## Lab 3 Yosys-1 good mux Part-3
 
 Writing Netlist
 
@@ -165,7 +165,7 @@ Writing Netlist
 
 ## Introduction to timing .libs
 
-## Video - 11 Lab 4 Introduction to .lib Part 1
+## Lab 4 Introduction to .lib Part 1
 ```
 vim ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
@@ -180,7 +180,7 @@ tt- typical library
 
 Once the library file is opened, we can see the operating conditions, the PVT where P-Process(there can be variations due to fabrication), V-Voltage (Variation due to voltage), T-Temperature(semiconductor are sensitive to temperature). All these three determines how the silicon is going to work.
 
-## Video - 12 Lab 4 Introduction to .lib Part 2
+## Lab 4 Introduction to .lib Part 2
 
 Example : AND gate 
 
@@ -188,7 +188,7 @@ Example : AND gate
 
 The keyword cell which defines the marks the beginning of the cell definition. It can contain different kind of cells like diffrent flavours of diffrent cells and different flavours of same cell. It contains different features of cell like leakage power for all the input combinations,area,power and timing informations of input pins.
 
-## Video - 13 Lab 4 Introduction to .lib Part 3
+## Lab 4 Introduction to .lib Part 3
 
 ## Different flavours of cell - AND gate.
 
@@ -199,7 +199,7 @@ delay more , area will be less and consume more power.
 
 ##Hierarchical Flat Synthesis
 
-## Video -14 Lab 5 Hier synthesis flat synthesis Part 1
+## Lab 5 Hier synthesis flat synthesis Part 1
 
 ## Hierarchical Synthesis
 
@@ -289,14 +289,14 @@ From the above image, we can see that, and gate instead of the submodules u1 and
 
 ## Various Flop Coding Styles and Optimization
 
-## Video:16 Why Flops and Flop Coding Styles Part -1
+## Why Flops and Flop Coding Styles Part -1
 
 In a Combinational Circuit, when the input is given, the output changes after the propgational delay. Because of the propogation delay, the output is going to have glitch. All logic gates add some delay to signals. These delays can cause expected and unwanted transitions in the output, called as glitches, where the output is momentarily different from the expected output. The more the combinational circuits, it can lead to more glitchy outputs. If there are continuous combinational circuits, the output cannot settle down, it'll be more glitchy. To avoid the glitches and to store the value we use flops.
 
 In the flops, the output can only be changed at the clock edge, and if the input changes at other times, the output will be unaffected. Flop is used in between the combinational circuit because flop always gives out the stable output where the output of the combinational will settle down.that is the main purpose of flop.
 To Initialize the flop, we have the control pins like reset or set.Reset and set can be synchronous and asynchronous.
 
-## Video:17 Why Flops and Flop Coding Styles Part -2
+## Why Flops and Flop Coding Styles Part -2
 
 ![Workshop image](IMAGES/IMG_36.png)
 
@@ -315,7 +315,7 @@ Synchronous will turn into D-pin of the flop. Reset awaiting the clock edge is c
 Here, Evaluating always block upon clock and as well as upon asynchronous reset. Entering always upon asynchronous reset, q goes low else the always entered because of the clock.Entered the always block because of the clock upon the clock, if there present synchronous reset, q goes low else q is getting d.
 
 
-## Video:18 Lab - Flop Synthesis simulations Part - 1
+## Lab - Flop Synthesis simulations Part - 1
 ![Workshop image](IMAGES/IMG_40.png)
 
 Asynchornous reset is not awaiting the clock edge, its immediately making the q go low.
@@ -333,7 +333,7 @@ Synchronous reset - The reset is getting applied upon the pos edge of the clock.
 ![Workshop image](IMAGES/IMG_44.png)
 
 
-## Video:19 Lab - Flop Synthesis simulations Part - 2
+## Lab - Flop Synthesis simulations Part - 2
 
 Synthesising the designs
 
@@ -369,7 +369,7 @@ show
 ```
 ![Workshop image](IMAGES/IMG_47.png)
 
-## Video:20 Interesting Optimisations Part-1
+## Interesting Optimisations Part-1
 
 Example : mult_2.v
 ```
@@ -398,7 +398,7 @@ Realization of Logic
 
 ![Workshop image](IMAGES/IMG_51.png)
 
-## Video:21 Interesting Optimisations Part-2
+## Interesting Optimisations Part-2
 
 Example : mult_8.v
 ```
@@ -427,7 +427,7 @@ Realization of Logic
 ![Workshop image](IMAGES/IMG_55.png)
 
 ## Day 3 - Combinational and Sequential Optimisations
-## Video 22 : Introduction to Logic Optimisations Part 1
+## Introduction to Logic Optimisations Part 1
 
 ### Combinational Logic Optimisation
 Squeezing the logics to get the most optimised design, efficient interms of area and power.
@@ -445,7 +445,7 @@ Techniques used for the combinational logic optimisation
 ### Boolean logic Optimization
   It is used to minimize the complex boolean expressions into simpler,equivalent forms reducing the number of logic gates to perform the specific function.
     
-## Video 23 : Introduction to Logic Optimisations Part -2
+## Introduction to Logic Optimisations Part -2
 
 ### Sequential Logic Optimisation
 Techniques used for the sequential logic optimisation
@@ -458,6 +458,40 @@ Techniques used for the sequential logic optimisation
 
 ## Combinational logic optimizations
 
-## Video 24 : Combinational logic optimisations Part 1
+## Combinational logic optimisations Part 1
+![Workshop image](IMAGES/IMG_56.png)
 
-   
+(i) opt_check.v
+
+Logic from verilog file
+![Workshop image](IMAGES/IMG_57.png)
+
+Command
+![Workshop image](IMAGES/IMG_58.png)
+
+Realization of logic
+![Workshop image](IMAGES/IMG_59.png)
+
+(ii) opt_check2.v
+
+Logic from verilog file
+![Workshop image](IMAGES/IMG_60.png)
+
+Realization of logic
+![Workshop image](IMAGES/IMG_61.png)
+
+(iii) opt_check3.v
+
+Logic from verilog file
+![Workshop image](IMAGES/IMG_62.png)
+
+Realization of logic
+![Workshop image](IMAGES/IMG_63.png)
+
+(iv) opt_check4.v
+
+Logic from verilog file
+![Workshop image](IMAGES/IMG_64.png)
+
+Realization of logic
+![Workshop image](IMAGES/IMG_65.png)
